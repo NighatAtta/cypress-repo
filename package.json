@@ -1,0 +1,22 @@
+{
+  "name": "cypressapi",
+  "version": "1.0.0",
+  "description": "Testing APIs ",
+  "main": "index.js",
+  "scripts": {
+    "test": "test api",
+    "cypress:open": "cypress open"
+  },
+  "keywords": [
+    "api",
+    "testing"
+  ],
+  "author": "nighat",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^11.2.0"
+  },
+  "dependencies": {
+    "uuid": "^9.0.0"
+  }
+}
