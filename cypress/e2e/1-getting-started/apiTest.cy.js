@@ -47,8 +47,9 @@ it('start workflow', function() {
 .then(
 (response) => {
     expect(response.status).to.eq(200) 
-    console.log(response) 
+    cy.log(JSON.stringify(response.body))
     expect(response.body.page).to.eq("Main menu")
+    
 })
 }
 })
@@ -80,7 +81,7 @@ it('Lets practice', function() {
 .then(
 (response) => {
     expect(response.status).to.eq(200) 
-    console.log(response) 
+    cy.log(JSON.stringify(response.body))
     expect(response.body.page).to.eq("Let's practice")
 })
 }
@@ -114,7 +115,7 @@ it('Objection handling', function() {
 .then(
 (response) => {
     expect(response.status).to.eq(200) 
-    console.log(response) 
+    cy.log(JSON.stringify(response.body))
     expect(response.body.page).to.eq("Practice objection handling")
 })
 }
@@ -147,7 +148,7 @@ it('Arrange objections call with Laura', function() {
 .then(
 (response) => {
     expect(response.status).to.eq(200) 
-    console.log(response) 
+    cy.log(JSON.stringify(response.body))
     expect(response.body.page).to.eq("Arrange objections call with Laura")
 })
 }
@@ -180,7 +181,7 @@ it('Laura objections', function() {
 .then(
 (response) => {
     expect(response.status).to.eq(200) 
-    console.log(response) 
+    cy.log(JSON.stringify(response.body))
     expect(response.body.page).to.eq("Laura objections")
 })
 }
@@ -213,7 +214,7 @@ it('Could you answer a few things', function() {
 .then(
 (response) => {
     expect(response.status).to.eq(200) 
-    console.log(response) 
+    cy.log(JSON.stringify(response.body)) 
     expect(response.body.page).to.eq("Could you answer a few things")
 })
 }
@@ -246,7 +247,7 @@ it('Status quo', function() {
 .then(
 (response) => {
     expect(response.status).to.eq(200) 
-    console.log(response) 
+    cy.log(JSON.stringify(response.body)) 
     expect(response.body.page).to.eq("Status quo")
 })
 }
@@ -279,7 +280,7 @@ it('Price', function() {
 .then(
 (response) => {
     expect(response.status).to.eq(200) 
-    console.log(response) 
+    cy.log(JSON.stringify(response.body))
     expect(response.body.page).to.eq("Price")
 })
 }
@@ -312,7 +313,7 @@ it('Deployment', function() {
 .then(
 (response) => {
     expect(response.status).to.eq(200) 
-    console.log(response) 
+    cy.log(JSON.stringify(response.body))
     expect(response.body.page).to.eq("Deployment")
 })
 }
@@ -345,7 +346,7 @@ it('Regular use', function() {
 .then(
 (response) => {
     expect(response.status).to.eq(200) 
-    console.log(response) 
+    cy.log(JSON.stringify(response.body))
     expect(response.body.page).to.eq("Regular use")
 })
 }
@@ -378,7 +379,7 @@ it('Goodbye', function() {
 .then(
 (response) => {
     expect(response.status).to.eq(200) 
-    console.log(response) 
+    cy.log(JSON.stringify(response.body)) 
     expect(response.body.page).to.eq("Goodbye")
 })
 }
@@ -411,7 +412,7 @@ it('After practice', function() {
 .then(
 (response) => {
     expect(response.status).to.eq(200) 
-    console.log(response) 
+    cy.log(JSON.stringify(response.body))
     expect(response.body.page).to.eq("After practice")
 })
 }
@@ -443,7 +444,7 @@ it('Show my results', function() {
 .then(
 (response) => {
     expect(response.status).to.eq(200) 
-    console.log(response) 
+    cy.log(JSON.stringify(response.body))
     expect(response.body.page).to.eq("After practice")
 })
 }
