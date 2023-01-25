@@ -2,8 +2,9 @@ import {v4 as uuidv4} from 'uuid';
 const TESTDATA = require('../../fixtures/userCredentials.json')
 
 
-describe('My first api test', () => {
+describe('Testing Simulation APIs', () => {
 let myuuid = uuidv4();
+
 
 it('getting access token', function() {
     cy.request('POST', 'https://qaapi.quantified.ai/api/token', {
@@ -15,7 +16,12 @@ it('getting access token', function() {
     ).then(
         (response) => {
          expect(response.status).to.eq(200) 
-          cy.writeFile('cypress/fixtures/token.json', {"token": "Bearer " + response.body.access_token})
+          //cy.writeFile('cypress/fixtures/token.json', {"token": "Bearer " + response.body.access_token})
+          cy.writeFile('token.text', "Bearer " + response.body.access_token )
+          cy.readFile('token.text').then((content) => {
+            // content variable contains the contents of the file
+            console.log(content);
+        })
         }
       )
       
@@ -23,8 +29,7 @@ it('getting access token', function() {
 
 it('start workflow', function() {
     
-    cy.fixture('token.json').then(function(token){
-        this.token=token
+    cy.readFile('token.text').then((content) =>
     {
     
     cy.request({
@@ -39,7 +44,7 @@ it('start workflow', function() {
             setDefault: false
         },
         headers: {
-            authorization : this.token.token
+            authorization : content
         }
 
     
@@ -51,14 +56,13 @@ it('start workflow', function() {
     expect(response.body.page).to.eq("Main menu")
     
 })
-}
 })
 })
 
+
 it('Lets practice', function() {
     
-    cy.fixture('token.json').then(function(token){
-        this.token=token
+    cy.readFile('token.text').then((content) =>
     {
     
     cy.request({
@@ -73,7 +77,7 @@ it('Lets practice', function() {
             setDefault: false
         },
         headers: {
-            authorization : this.token.token
+            authorization : content
         }
 
     
@@ -84,15 +88,13 @@ it('Lets practice', function() {
     cy.log(JSON.stringify(response.body))
     expect(response.body.page).to.eq("Let's practice")
 })
-}
 })
 })
 
 
 it('Objection handling', function() {
     
-    cy.fixture('token.json').then(function(token){
-        this.token=token
+    cy.readFile('token.text').then((content) =>
     {
     
     cy.request({
@@ -107,7 +109,7 @@ it('Objection handling', function() {
             setDefault: false
         },
         headers: {
-            authorization : this.token.token
+            authorization : content
         }
 
     
@@ -118,14 +120,12 @@ it('Objection handling', function() {
     cy.log(JSON.stringify(response.body))
     expect(response.body.page).to.eq("Practice objection handling")
 })
-}
 })
 })
 
 it('Arrange objections call with Laura', function() {
     
-    cy.fixture('token.json').then(function(token){
-        this.token=token
+    cy.readFile('token.text').then((content) =>
     {
     
     cy.request({
@@ -140,7 +140,7 @@ it('Arrange objections call with Laura', function() {
             setDefault: false
         },
         headers: {
-            authorization : this.token.token
+            authorization : content
         }
 
     
@@ -151,14 +151,12 @@ it('Arrange objections call with Laura', function() {
     cy.log(JSON.stringify(response.body))
     expect(response.body.page).to.eq("Arrange objections call with Laura")
 })
-}
 })
 })
 
 it('Laura objections', function() {
     
-    cy.fixture('token.json').then(function(token){
-        this.token=token
+    cy.readFile('token.text').then((content) =>
     {
     
     cy.request({
@@ -173,7 +171,7 @@ it('Laura objections', function() {
             setDefault: false
         },
         headers: {
-            authorization : this.token.token
+            authorization : content
         }
 
     
@@ -184,14 +182,12 @@ it('Laura objections', function() {
     cy.log(JSON.stringify(response.body))
     expect(response.body.page).to.eq("Laura objections")
 })
-}
 })
 })
 
 it('Could you answer a few things', function() {
     
-    cy.fixture('token.json').then(function(token){
-        this.token=token
+    cy.readFile('token.text').then((content) =>
     {
     
     cy.request({
@@ -206,7 +202,7 @@ it('Could you answer a few things', function() {
             setDefault: false
         },
         headers: {
-            authorization : this.token.token
+            authorization : content
         }
 
     
@@ -217,14 +213,12 @@ it('Could you answer a few things', function() {
     cy.log(JSON.stringify(response.body)) 
     expect(response.body.page).to.eq("Could you answer a few things")
 })
-}
 })
 })
 
 it('Status quo', function() {
     
-    cy.fixture('token.json').then(function(token){
-        this.token=token
+    cy.readFile('token.text').then((content) =>
     {
     
     cy.request({
@@ -239,7 +233,7 @@ it('Status quo', function() {
             setDefault: false
         },
         headers: {
-            authorization : this.token.token
+            authorization : content
         }
 
     
@@ -250,14 +244,12 @@ it('Status quo', function() {
     cy.log(JSON.stringify(response.body)) 
     expect(response.body.page).to.eq("Status quo")
 })
-}
 })
 })
 
 it('Price', function() {
     
-    cy.fixture('token.json').then(function(token){
-        this.token=token
+    cy.readFile('token.text').then((content) =>
     {
     
     cy.request({
@@ -272,7 +264,7 @@ it('Price', function() {
             setDefault: false
         },
         headers: {
-            authorization : this.token.token
+            authorization : content
         }
 
     
@@ -283,14 +275,12 @@ it('Price', function() {
     cy.log(JSON.stringify(response.body))
     expect(response.body.page).to.eq("Price")
 })
-}
 })
 })
 
 it('Deployment', function() {
     
-    cy.fixture('token.json').then(function(token){
-        this.token=token
+    cy.readFile('token.text').then((content) =>
     {
     
     cy.request({
@@ -305,7 +295,7 @@ it('Deployment', function() {
             setDefault: false
         },
         headers: {
-            authorization : this.token.token
+            authorization : content
         }
 
     
@@ -316,14 +306,12 @@ it('Deployment', function() {
     cy.log(JSON.stringify(response.body))
     expect(response.body.page).to.eq("Deployment")
 })
-}
 })
 })
 
 it('Regular use', function() {
     
-    cy.fixture('token.json').then(function(token){
-        this.token=token
+    cy.readFile('token.text').then((content) =>
     {
     
     cy.request({
@@ -338,7 +326,7 @@ it('Regular use', function() {
             setDefault: false
         },
         headers: {
-            authorization : this.token.token
+            authorization : content
         }
 
     
@@ -349,14 +337,12 @@ it('Regular use', function() {
     cy.log(JSON.stringify(response.body))
     expect(response.body.page).to.eq("Regular use")
 })
-}
 })
 })
 
 it('Goodbye', function() {
     
-    cy.fixture('token.json').then(function(token){
-        this.token=token
+    cy.readFile('token.text').then((content) =>
     {
     
     cy.request({
@@ -371,7 +357,7 @@ it('Goodbye', function() {
             setDefault: false
         },
         headers: {
-            authorization : this.token.token
+            authorization : content
         }
 
     
@@ -382,14 +368,12 @@ it('Goodbye', function() {
     cy.log(JSON.stringify(response.body)) 
     expect(response.body.page).to.eq("Goodbye")
 })
-}
 })
 })
 
 it('After practice', function() {
     
-    cy.fixture('token.json').then(function(token){
-        this.token=token
+    cy.readFile('token.text').then((content) =>
     {
     
     cy.request({
@@ -404,7 +388,7 @@ it('After practice', function() {
             setDefault: false
         },
         headers: {
-            authorization : this.token.token
+            authorization : content
         }
 
     
@@ -415,13 +399,12 @@ it('After practice', function() {
     cy.log(JSON.stringify(response.body))
     expect(response.body.page).to.eq("After practice")
 })
-}
 })
 })
+
 it('Show my results', function() {
     
-    cy.fixture('token.json').then(function(token){
-        this.token=token
+    cy.readFile('token.text').then((content) =>
     {
     
     cy.request({
@@ -436,7 +419,7 @@ it('Show my results', function() {
             setDefault: false
         },
         headers: {
-            authorization : this.token.token
+            authorization : content
         }
 
     
@@ -446,10 +429,9 @@ it('Show my results', function() {
     expect(response.status).to.eq(200) 
     cy.log(JSON.stringify(response.body))
     expect(response.body.page).to.eq("After practice")
+    
 })
-}
 })
 })
-
 
 })
