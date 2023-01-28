@@ -17,8 +17,8 @@ it('getting access token', function() {
         (response) => {
          expect(response.status).to.eq(200) 
           //cy.writeFile('cypress/fixtures/token.json', {"token": "Bearer " + response.body.access_token})
-          cy.writeFile('token.text', "Bearer " + response.body.access_token )
-          cy.readFile('token.text').then((content) => {
+          cy.writeFile('token.txt', "Bearer " + response.body.access_token )
+          cy.readFile('token.txt').then((content) => {
             // content variable contains the contents of the file
             console.log(content);
         })
@@ -29,7 +29,7 @@ it('getting access token', function() {
 
 it('start workflow', function() {
     
-    cy.readFile('token.text').then((content) =>
+    cy.readFile('token.txt').then((content) =>
     {
     
     cy.request({
@@ -62,7 +62,7 @@ it('start workflow', function() {
 
 it('Lets practice', function() {
     
-    cy.readFile('token.text').then((content) =>
+    cy.readFile('token.txt').then((content) =>
     {
     
     cy.request({
@@ -94,7 +94,7 @@ it('Lets practice', function() {
 
 it('Objection handling', function() {
     
-    cy.readFile('token.text').then((content) =>
+    cy.readFile('token.txt').then((content) =>
     {
     
     cy.request({
@@ -125,7 +125,7 @@ it('Objection handling', function() {
 
 it('Arrange objections call with Laura', function() {
     
-    cy.readFile('token.text').then((content) =>
+    cy.readFile('token.txt').then((content) =>
     {
     
     cy.request({
@@ -156,7 +156,7 @@ it('Arrange objections call with Laura', function() {
 
 it('Laura objections', function() {
     
-    cy.readFile('token.text').then((content) =>
+    cy.readFile('token.txt').then((content) =>
     {
     
     cy.request({
@@ -187,7 +187,7 @@ it('Laura objections', function() {
 
 it('Could you answer a few things', function() {
     
-    cy.readFile('token.text').then((content) =>
+    cy.readFile('token.txt').then((content) =>
     {
     
     cy.request({
@@ -218,7 +218,7 @@ it('Could you answer a few things', function() {
 
 it('Status quo', function() {
     
-    cy.readFile('token.text').then((content) =>
+    cy.readFile('token.txt').then((content) =>
     {
     
     cy.request({
@@ -249,7 +249,7 @@ it('Status quo', function() {
 
 it('Price', function() {
     
-    cy.readFile('token.text').then((content) =>
+    cy.readFile('token.txt').then((content) =>
     {
     
     cy.request({
@@ -280,7 +280,7 @@ it('Price', function() {
 
 it('Deployment', function() {
     
-    cy.readFile('token.text').then((content) =>
+    cy.readFile('token.txt').then((content) =>
     {
     
     cy.request({
@@ -311,7 +311,7 @@ it('Deployment', function() {
 
 it('Regular use', function() {
     
-    cy.readFile('token.text').then((content) =>
+    cy.readFile('token.txt').then((content) =>
     {
     
     cy.request({
@@ -342,7 +342,7 @@ it('Regular use', function() {
 
 it('Goodbye', function() {
     
-    cy.readFile('token.text').then((content) =>
+    cy.readFile('token.txt').then((content) =>
     {
     
     cy.request({
@@ -373,7 +373,7 @@ it('Goodbye', function() {
 
 it('After practice', function() {
     
-    cy.readFile('token.text').then((content) =>
+    cy.readFile('token.txt').then((content) =>
     {
     
     cy.request({
@@ -404,7 +404,7 @@ it('After practice', function() {
 
 it('Show my results', function() {
     
-    cy.readFile('token.text').then((content) =>
+    cy.readFile('token.txt').then((content) =>
     {
     
     cy.request({
@@ -429,9 +429,9 @@ it('Show my results', function() {
     expect(response.status).to.eq(200) 
     cy.log(JSON.stringify(response.body))
     expect(response.body.page).to.eq("After practice")
-    
+    //cy.writeFile('token.txt', "")
+ 
 })
 })
 })
-
 })

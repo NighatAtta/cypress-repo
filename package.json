@@ -17,6 +17,7 @@
     "cypress": "^11.2.0"
   },
   "dependencies": {
+    "fs": "^0.0.1-security",
     "uuid": "^9.0.0"
   }
 }
