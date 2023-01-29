@@ -6,7 +6,7 @@ describe('Testing Simulation APIs', () => {
     let myuuid = uuidv4();
 
 
-    it('getting access token', function () {
+    it('Testing Simulation APIs', function () {
         cy.request('POST', 'https://qaapi.quantified.ai/api/token', {
             email: TESTDATA.email,
             grant_type: TESTDATA.grant_type,
