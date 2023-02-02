@@ -1,25 +1,20 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+//const TESTDATA = require('../../fixtures/userCredentials.json')
+Cypress.Commands.add('generateToken', () => {
+
+    cy.fixture('userCredentials.json').then((TESTDATA) => {
+    cy.request('POST', 'https://qaapi.quantified.ai/api/token', {
+            email: TESTDATA.email,
+            grant_type: TESTDATA.grant_type,
+            impersonating_user_id: TESTDATA.impersonating_user_id,
+            password: TESTDATA.password
+        }
+        ).then(
+            (response) => {
+                expect(response.status).to.eq(200)
+                const token = "Bearer " + response.body.access_token
+                return token
+            })
+        })
+
+})
