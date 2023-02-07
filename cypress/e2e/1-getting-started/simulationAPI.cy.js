@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 describe('Testing Simulation APIs', () => {
     let myuuid = uuidv4();
 
-    it('Testing Simulation API Flow', function () {
+    it('TestCase01-Simulation API Flow', function () {
 
             cy.generateToken()
             .then((token) => {
