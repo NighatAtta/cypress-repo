@@ -4,6 +4,7 @@ module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
+      
     },
    
    env: {
@@ -12,5 +13,5 @@ module.exports = defineConfig({
     "QAsimulatorEnvId": "7811b5ae-8073-43a5-be6c-47049ce8eee4",
     "ProjectId" : "quantified-p1"
    }
-  },
+  }
 });
