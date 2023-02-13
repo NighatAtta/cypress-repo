@@ -25,7 +25,7 @@ Cypress.Commands.add('simulationAPI', (queryText, questionId, sessionId, token)=
 
     cy.request({
         method: 'POST',
-        url: Cypress.env('simulationAPI'),
+        url: Cypress.env('simulationAPIURL'),
         body: {
             agentId: Cypress.env('agentId'),
             projectId: Cypress.env('ProjectId'),
