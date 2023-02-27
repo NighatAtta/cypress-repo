@@ -4,8 +4,8 @@
   "description": "Testing APIs ",
   "main": "index.js",
   "scripts": {
-    "test": "test api",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "cy:run:prod": "npx cypress run --browser chrome --config-file prod.config.js"
   },
   "keywords": [
     "api",
@@ -19,6 +19,8 @@
     "cypress-mochawesome-reporter": "^3.2.3"
   },
   "dependencies": {
+    "fs-extra": "^11.1.0",
+    "pg": "^8.8.0",
     "uuid": "^9.0.0"
   }
 }

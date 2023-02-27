@@ -1,14 +1,15 @@
 
-//Global function to generate token
+//function to generate token
+
 
 Cypress.Commands.add('generateToken', () => {
 
     cy.fixture('userCredentials.json').then((TESTDATA) => {
-    cy.request('POST', 'https://qaapi.quantified.ai/api/token', {
-            email: TESTDATA.email,
-            grant_type: TESTDATA.grant_type,
-            impersonating_user_id: TESTDATA.impersonating_user_id,
-            password: TESTDATA.password
+    cy.request('POST', Cypress.env('tokenAPIURL'), {
+            email: Cypress.env('email'),
+            grant_type: Cypress.env('grant_type'),
+            impersonating_user_id: Cypress.env('impersonating_user_id'),
+            password: Cypress.env('password')
         }
         ).then(
             (response) => {
@@ -20,7 +21,7 @@ Cypress.Commands.add('generateToken', () => {
 
 })
 
-//Global function to call simulation API
+//function to call simulation API
 Cypress.Commands.add('simulationAPI', (queryText, questionId, sessionId, token)=> {
 
     cy.request({
